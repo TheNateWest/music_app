@@ -21,7 +21,7 @@ export default function OnlineMode(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Switch {...label} onChange={() => props.setIsOnline(!props.isOnline)}/>
+        <Switch {...label} defaultChecked value={props.isOnline} onChange={() => props.setIsOnline(!props.isOnline)}/>
       </CardActions>
       
         

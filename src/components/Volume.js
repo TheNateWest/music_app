@@ -3,12 +3,12 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import Switch from '@mui/material/Switch';
+import Slider from '@mui/material/Slider';
 
 const label = { inputProps: { 'aria-label': 'Online Mode' } };
 
 
-export default function MasterVolume(props) {
+export default function OnlineMode({volume, setVolume}) {
    
   return (
     <Card sx={{ maxWidth: 275 }}>
@@ -17,11 +17,20 @@ export default function MasterVolume(props) {
           Master Volume
         </Typography>
         <Typography variant="body2">
-          Is this application connected to the internet?
+          Overrides all other sound settings in this application.
         </Typography>
       </CardContent>
       <CardActions>
-        <Switch {...label} onChange={() => props.setIsOnline(!props.isOnline)}/>
+      <Slider
+        aria-label="Volume"
+        value={volume}
+        valueLabelDisplay="auto"
+        step={10}
+        marks
+        min={0}
+        max={100}
+        onChange={(e)=> setVolume(e.target.value)}
+      />
       </CardActions>
       
         
